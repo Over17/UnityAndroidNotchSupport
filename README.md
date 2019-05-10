@@ -20,7 +20,8 @@ This plugin is targeted towards Unity 2017.4, however I see no reasons why it sh
 
 ## Alternative solution
 Instead of using the script (or if you want to apply the flag as early as possible), you could modify the theme used by Unity. To do so, please create a file at the path `Assets/Plugins/Android/res/values-v28/styles.xml` with the following contents:
-```<?xml version="1.0" encoding="utf-8"?>
+```
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 <style name="BaseUnityTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
 	<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>

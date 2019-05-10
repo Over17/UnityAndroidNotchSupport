@@ -18,6 +18,18 @@ This plugin is targeted towards Unity 2017.4, however I see no reasons why it sh
 4.	If you want to change the setting in runtime, call `public void SetRenderBehindNotch(bool enabled)` in `RenderBehindNotchSupport` class.
 5.	Enjoy
 
+## Alternative solution
+Instead of using the script (or if you want to apply the flag as early as possible), you could modify the theme used by Unity. To do so, please create a file at the path `Assets/Plugins/Android/res/values-v28/styles.xml` with the following contents:
+```<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="BaseUnityTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+	<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+</style>
+</resources>```
+There is no need to add the script to your project in this case. You may also need to tweak the snippet above if you are using a custom theme.
+
+I recommend using the default approach with the script unless you have good reasons to do otherwise.
+
 ## Useful Links
 -	https://developer.android.com/guide/topics/display-cutout
 -	https://developer.android.com/reference/android/view/WindowManager.LayoutParams#layoutInDisplayCutoutMode

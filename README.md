@@ -25,7 +25,9 @@ Instead of using the script (or if you want to apply the flag as early as possib
 <style name="BaseUnityTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
 	<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
 </style>
-</resources>```
+</resources>
+```
+
 There is no need to add the script to your project in this case. You may also need to tweak the snippet above if you are using a custom theme.
 
 I recommend using the default approach with the script unless you have good reasons to do otherwise.

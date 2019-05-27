@@ -5,6 +5,8 @@ If you want to make use of the whole display surface area and render in the area
 
 One advantage of this plugin over the built-in Unity solution is that it allows changing the setting in runtime if needed, by calling `public void SetRenderBehindNotch(bool enabled)` in `RenderBehindNotchSupport`.
 
+If you are planning to make use of "rendering behind the notch" feature, you'll also need another feature which returns you the area of the screen which is outside of the notch area (and is safe to render to). The API is equivalent to what `Screen.safeArea` API does in newer Unity versions, and returns a `Rect`.
+
 This plugin is targeted towards Unity 2017.4, however I see no reasons why it shouldn't work with earlier versions too.
 
 ## System Requirements
@@ -16,10 +18,11 @@ This plugin is targeted towards Unity 2017.4, however I see no reasons why it sh
 2.	Attach the `Assets/Scripts/RenderBehindNotchSupport.cs` script to a game object of your choice in your first scene to make sure the plugin is loaded as early as possible
 3.	The script has a public boolean property so that you can tick/untick the checkbox to enable or disable rendering behind the notch with a single click
 4.	If you want to change the setting in runtime, call `public void SetRenderBehindNotch(bool enabled)` in `RenderBehindNotchSupport` class.
+5.	Attach the `Assets/Scripts/AndroidSafeArea.cs` script to a game object of your choice if you need the safe area API. The property `AndroidSafeArea.safeArea` is returning a `Rect`, use it to layout your UI.
 5.	Enjoy
 
 ## Alternative solution
-Instead of using the script (or if you want to apply the flag as early as possible), you could modify the theme used by Unity. To do so, please create a file at the path `Assets/Plugins/Android/res/values-v28/styles.xml` with the following contents:
+Instead of using the script (or if you want to apply the "render behind the notch" flag as early as possible), you could modify the theme used by Unity. To do so, please create a file at the path `Assets/Plugins/Android/res/values-v28/styles.xml` with the following contents:
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
@@ -36,6 +39,7 @@ I recommend using the default approach with the script unless you have good reas
 ## Useful Links
 -	https://developer.android.com/guide/topics/display-cutout
 -	https://developer.android.com/reference/android/view/WindowManager.LayoutParams#layoutInDisplayCutoutMode
+-	https://docs.unity3d.com/ScriptReference/Screen-safeArea.html
 
 ## License
 Licensed under MIT license.

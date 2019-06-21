@@ -105,7 +105,7 @@ public class AndroidSafeArea : MonoBehaviour
             {
                 x       = Mathf.Round(WindowInsetsListener.SafeInset.left * xScale),
                 width   = Mathf.Round(Screen.width - (WindowInsetsListener.SafeInset.left + WindowInsetsListener.SafeInset.right) * xScale),
-                y       = Mathf.Round(WindowInsetsListener.SafeInset.bottom * yScale),
+                y       = Mathf.Round(WindowInsetsListener.SafeInset.top * yScale),
                 height  = Mathf.Round(Screen.height - (WindowInsetsListener.SafeInset.bottom + WindowInsetsListener.SafeInset.top) * yScale)
             };
 

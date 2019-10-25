@@ -23,10 +23,22 @@ This plugin is targeted towards Unity 2017.4, however I see no reasons why it sh
 
 ## Alternative solution
 Instead of using the script (or if you want to apply the "render behind the notch" flag as early as possible), you could modify the theme used by Unity. To do so, please create a file at the path `Assets/Plugins/Android/res/values-v28/styles.xml` with the following contents:
+
+Unity 2017.4 or newer
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <style name="BaseUnityTheme" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
+	<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+</style>
+</resources>
+```
+
+Before 2017.4 (ie. 5.6)
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="UnityThemeSelector" parent="android:Theme.Material.Light.NoActionBar.Fullscreen">
 	<item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
 </style>
 </resources>
